@@ -27,7 +27,8 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - To encode the input file using base64 encoding:
     > python3 Main.py &#45;op encode &#45;i &lt;input_path&gt; &#45;o &lt;output_path&gt; &#45;b64
     - To encode binary files, using &#45;b64 is compulsory.
-    - Any file can be encoded using &#45;b64 option.
+    - Text files can also be encoded using &#45;b64 option.
+    - Using &#45;b64 option is recommended for all types of files.
     - When &#45;b64 is used in encode operation, the binary content of the input file is first encoded using base64; then, base64&#45;encoded string is encoded into an image.
 - To decode the input file:
     > python3 Main.py &#45;op decode &#45;i &lt;input_path&gt; &#45;o &lt;output_path&gt;
@@ -36,6 +37,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 
     - Base64 is used while decoding if and only if the encoded input file was encoded using base64.
     - When &#45;b64 is used in decode operation, the base64-encoded string obtained by decoding the input image is decoded using base64. Then, the binary result is written to the output file.
+- Extension of the encoded image file is determined by the output filename specified by the user in the command. Using extensions other than .png in encoded image may cause unexpected behavior. Therefore, using .png extension for encoded image is recommended.
 
 # Sample Runs for Encode Operation
 - Command:
@@ -43,7 +45,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/text_output.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/text_output.png)
 
 
 - Command:
@@ -51,7 +53,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/text_output2.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/text_output2.png)
 
 
 - Command:
@@ -59,7 +61,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/text_output3.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/text_output3.png)
 
 
 - Command:
@@ -67,7 +69,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/binary_output.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/binary_output.png)
 
 
 - Command:
@@ -75,7 +77,7 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/binary_output2.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/binary_output2.png)
 
 
 - Command:
@@ -83,4 +85,9 @@ A command-line tool that can encode a file to an image and can decode encoded ou
 - Output:
 
 
-    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/binary_output3.png)
+    > ![Output](https://raw.githubusercontent.com/ender-s/Image-Encoder-Decoder/main/outputs/binary_output3.png)
+
+# Sample Commands for Decode Operation
+ > python3 Main.py -op decode -i text_output.png -o output.txt
+ 
+ > python3 Main.py -op decode -i binary_output.png -o output.png -b64
